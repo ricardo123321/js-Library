@@ -29,16 +29,26 @@ function addBookToLibrary() {
     const authorB = document.createElement("h2")
     const pagesB = document.createElement("h2")
     const readB = document.createElement("h3")
+    const btn1  = document.createElement("button")
+    const btn2 = document.createElement("button")
+
 
     nameB.textContent = myLibrary[myLibrary.length - 1].name
     authorB.textContent = myLibrary[myLibrary.length - 1].author
     pagesB.textContent = myLibrary[myLibrary.length - 1].pages
     readB.textContent = myLibrary[myLibrary.length - 1].read
+    btn1.textContent = "remove"
+
+    btn1.addEventListener("click", () => {
+        container.removeChild(div)
+    })
 
     div.appendChild(nameB)
     div.appendChild(authorB)
     div.appendChild(pagesB)
     div.appendChild(readB)
+    div.appendChild(btn1)
+    div.appendChild(btn2)
     container.appendChild(div)
 
     alert(`${name.value} by ${author.value}, ${pages.value} pages, has been added ${read.value}`)
@@ -47,4 +57,8 @@ function addBookToLibrary() {
 
 function forma(){
     document.getElementById("form").style.display = "block"
+}
+
+function cancel(){
+    document.getElementById("form").style.display = "none"
 }
