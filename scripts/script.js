@@ -1,30 +1,41 @@
-if("library" in localStorage) {
-    var myLibrary = localStorage.getItem("library")
+if("library" in localStorage && localStorage.getItem("library") != ""){
+    var myLibrary = JSON.parse(localStorage.getItem("library"))
+    var i = JSON.parse(localStorage.getItem("counter"))
 }else{
     var myLibrary = [];
+    var i = 0
+    localStorage.setItem("counter", i)
     localStorage.setItem("library", myLibrary)
 }
 
-function Book(name, author, pages, read) {
+function Book(name, author, pages, read, num) {
     this.name = name
     this.author = author
     this.pages = pages
     this.read = read
+    this.num = num
 }
 
 function addBookToLibrary(name, author, pages, rd1 = false, rd2 = false) {
-    myLibrary = localStorage.getItem("library")
+    if ("library" in localStorage && localStorage.getItem("library") != ""){
+    myLibrary = JSON.parse(localStorage.getItem("library"))
+    }
+
+    i = JSON.parse(localStorage.getItem("counter"))
+    const num = i
 
     if(rd1.checked==true) {
-        var read = rd1}
+        var read = rd1.value}
     else if(rd2.checked==true) {
-        var read = rd2}
+        var read = rd2.value}
     else {
         var read = "unspecified" }
-    alert(`${name.value} by ${author.value}, ${pages.value} pages, has been added ${read.value}`)
-    console.log(new Book(name, author, pages, read))
-    myLibrary.push(new Book(name, author, pages, read))
-    localStorage.setItem("library", myLibrary)
+
+    alert(`${name} by ${author}, ${pages} pages, has been added ${read}`)
+    myLibrary[i] = new Book(name, author, pages, read, num)
+    i = i + 1
+    localStorage.setItem("library", JSON.stringify(myLibrary))
+    localStorage.setItem("counter", JSON.stringify(i))
 }
 
 function forma(){
@@ -36,9 +47,8 @@ function cancel(){
 }
 
 function cont(){
-    myLibrary = localStorage.getItem("library")
-    const container = document.getElementById("container")
-    var i
+    myLibrary = JSON.parse(localStorage.getItem("library"))
+    var container = document.getElementById("contn")
     for (i = 0; i < myLibrary.length; i++){
         const div = document.createElement("div")
         const nameB = document.createElement("h1")
@@ -47,23 +57,43 @@ function cont(){
         const readB = document.createElement("h3")
         const btn1  = document.createElement("button")
         const btn2 = document.createElement("button")
-
-        nameB.textContent = myLibrary[i].name.value
-        authorB.textContent = myLibrary[i].author.value
-        pagesB.textContent = myLibrary[i].pages.value
-        readB.textContent = myLibrary[i].read.value
+        const numB = myLibrary[i].num
+        nameB.textContent = myLibrary[i].name
+        authorB.textContent = myLibrary[i].author
+        pagesB.textContent = myLibrary[i].pages
+        readB.textContent = myLibrary[i].read
         btn1.textContent = "remove"
         btn2.textContent = "read/unread"
+        container.setAttribute("class", "row")
+        div.setAttribute("class", "books")
+        div.setAttribute("class", "col-lg-4")
+        btn1.setAttribute("class", "btn")
+        btn1.setAttribute("class", "btn-primary")
+        btn2.setAttribute("class", "btn")
+        btn2.setAttribute("class", "btn-primary")
 
         btn1.addEventListener("click", () => {
+            const result = myLibrary.find( ({ num }) => num === numB );
+            if (myLibrary.length == 1){
+                myLibrary = []
+            }
+            myLibrary.splice(numB, 1)
+            i = i - 1
             container.removeChild(div)
+            localStorage.setItem("library", JSON.stringify(myLibrary))
+            localStorage.setItem("counter", JSON.stringify(i))
+            console.log(myLibrary)
         })
     
         btn2.addEventListener("click", () =>{
-            if (readB.value == "Yes I have read it"){
-                readB.textContent = "No I haven't read it" 
+            if (readB.textContent == "Yes I have read it"){
+                readB.textContent = "No I haven't read it"
+                myLibrary[numB].read = "No I haven't read it"
+                localStorage.setItem("library", JSON.stringify(myLibrary))
             }else{
-                readB.textContent = "Yes I have read it" 
+                readB.textContent = "Yes I have read it"
+                myLibrary[numB].read = "Yes I have read it"
+                localStorage.setItem("library", JSON.stringify(myLibrary))
             }
         })
     
@@ -76,6 +106,5 @@ function cont(){
         container.appendChild(div)
     }
 }
-
+cont()
 console.log(localStorage)
-addBookToLibrary("ricardo", "monos", 333, true)
