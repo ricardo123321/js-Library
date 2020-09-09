@@ -1,28 +1,28 @@
 body {
-line-height: 1;
+  line-height: 1;
 }
 
-input, select {
-vertical-align:middle;
+input,
+select {
+  vertical-align: middle;
 }
-
 
 table {
-border-collapse: collapse;
-border-spacing: 0;
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 .bold {
-font-weight: bold;
+  font-weight: bold;
 }
 
 .floatLeft {
-float: left;
+  float: left;
 }
 .floatRight {
-float: right;
+  float: right;
 }
 
 .clear {
-clear: both;
+  clear: both;
 }
