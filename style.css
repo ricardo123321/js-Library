@@ -1,0 +1,28 @@
+body {
+line-height: 1;
+}
+
+input, select {
+vertical-align:middle;
+}
+
+
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+
+.bold {
+font-weight: bold;
+}
+
+.floatLeft {
+float: left;
+}
+.floatRight {
+float: right;
+}
+
+.clear {
+clear: both;
+}

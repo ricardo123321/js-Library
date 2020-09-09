@@ -67,10 +67,8 @@ function cont() {
     container.setAttribute('class', 'row');
     div.setAttribute('class', 'books');
     div.setAttribute('class', 'col-lg-4');
-    btn1.setAttribute('class', 'btn');
-    btn1.setAttribute('class', 'btn-primary');
-    btn2.setAttribute('class', 'btn');
-    btn2.setAttribute('class', 'btn-primary');
+    btn1.setAttribute('class', 'btn btn-primary');
+    btn2.setAttribute('class', 'btn btn-primary');
 
     btn1.addEventListener('click', () => {
       const result = myLibrary.find(({ num }) => num === numB);
