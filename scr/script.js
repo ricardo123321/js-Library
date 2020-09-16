@@ -65,8 +65,7 @@ function cont() {
     btn1.textContent = 'remove';
     btn2.textContent = 'read/unread';
     container.setAttribute('class', 'row');
-    div.setAttribute('class', 'books');
-    div.setAttribute('class', 'col-lg-4');
+    div.setAttribute('class', 'col-lg-4 book');
     btn1.setAttribute('class', 'btn btn-primary');
     btn2.setAttribute('class', 'btn btn-primary');
 
