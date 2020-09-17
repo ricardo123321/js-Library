@@ -1,4 +1,4 @@
-if (('library' in localStorage && localStorage.getItem('library') === '') || localStorage.getItem('library') === null ) {
+if (localStorage.getItem('library') === '' || localStorage.getItem('library') === null ) {
   const myLibrary = [];
   const i = 0;
   localStorage.setItem('counter', i);
@@ -16,7 +16,12 @@ const Book = (name, author, pages, read, num) => {
   )
 }
 
-function addBookToLibrary(name, author, pages, rd1 = false, rd2 = false) {
+const addBookToLibrary = (name, author, pages, rd1 = false, rd2 = false) => {
+  name = document.getElementById('bookName').value 
+  author = document.getElementById('authorName').value
+  pages = document.getElementById('pagesNumber').value
+  rd1 = document.getElementById('yes')
+  rd2 = document.getElementById('no')
   let myLibrary = [];
   let read;
   if ('library' in localStorage && localStorage.getItem('library') !== '') {
@@ -40,15 +45,15 @@ function addBookToLibrary(name, author, pages, rd1 = false, rd2 = false) {
   localStorage.setItem('counter', JSON.stringify(i));
 }
 
-function forma() {
+const forma = () => {
   document.getElementById('form').style.display = 'block';
 }
 
-function cancel() {
+const cancel = () => {
   document.getElementById('form').style.display = 'none';
 }
 
-function cont() {
+const cont = () => {
   let myLibrary = JSON.parse(localStorage.getItem('library'));
   const container = document.getElementById('contn');
   let i = 0;
