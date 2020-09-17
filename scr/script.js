@@ -1,4 +1,4 @@
-if ('library' in localStorage && localStorage.getItem('library') === '') {
+if (('library' in localStorage && localStorage.getItem('library') === '') || localStorage.getItem('library') === null ) {
   const myLibrary = [];
   const i = 0;
   localStorage.setItem('counter', i);
