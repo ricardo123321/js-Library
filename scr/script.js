@@ -5,12 +5,15 @@ if ('library' in localStorage && localStorage.getItem('library') === '') {
   localStorage.setItem('library', myLibrary);
 }
 
-function Book(name, author, pages, read, num) {
-  this.name = name;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  this.num = num;
+const Book = (name, author, pages, read, num) => {
+  return({
+  name,
+  author,
+  pages,
+  read,
+  num
+  }
+  )
 }
 
 function addBookToLibrary(name, author, pages, rd1 = false, rd2 = false) {
@@ -31,7 +34,7 @@ function addBookToLibrary(name, author, pages, rd1 = false, rd2 = false) {
     read = 'unspecified';
   }
 
-  myLibrary[i] = new Book(name, author, pages, read, num);
+  myLibrary[i] = Book(name, author, pages, read, num);
   i += 1;
   localStorage.setItem('library', JSON.stringify(myLibrary));
   localStorage.setItem('counter', JSON.stringify(i));
