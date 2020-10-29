@@ -10,6 +10,17 @@ This project was built using these technologies.
 * CSS
 * JavaScript
 
+### Live Demo
+
+[Live Demo Link](https://ricardo123321.github.io/js-Library/)
+
+### Running Locally
+
+Just clone the repo and you can easily work with it:
+```
+git clone https://github.com/ricardo123321/Restaurant-Page.git
+
+```
 ## Author
 
 👤 Ricardo
