@@ -1,21 +1,19 @@
 const dombook1 = () => {
-  name = document.getElementById('bookName').value;
-  author = document.getElementById('authorName').value;
-  pages = document.getElementById('pagesNumber').value;
-  rd1 = document.getElementById('yes');
-  rd2 = document.getElementById('no');
-  let myLibrary = [];
-  let read;
+  const name = document.getElementById('bookName').value;
+  const author = document.getElementById('authorName').value;
+  const pages = document.getElementById('pagesNumber').value;
+  const rd1 = document.getElementById('yes');
+  const rd2 = document.getElementById('no');
+  const myLibrary = [];
 
-  return{
+  return {
     name,
     author,
     pages,
     rd1,
     rd2,
     myLibrary,
-    read
-  }
+  };
 };
 
 const cont = () => {

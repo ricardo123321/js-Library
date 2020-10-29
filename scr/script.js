@@ -15,14 +15,14 @@ const Book = (name, author, pages, read, num) => ({
 );
 
 const addBookToLibrary = (name, author, pages, rd1 = false, rd2 = false) => {
-  let bb = dombook1()
+  const bb = dombook1();
   if ('library' in localStorage && localStorage.getItem('library') !== '') {
     bb.myLibrary = JSON.parse(localStorage.getItem('library'));
   }
 
   let i = JSON.parse(localStorage.getItem('counter'));
   const num = i;
-
+  let read;
   if (bb.rd1.checked === true) {
     read = rd1.value;
   } else if (bb.rd2.checked === true) {
