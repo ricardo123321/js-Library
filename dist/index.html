@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../style.css">
     <title>Library</title>
 </head>
 <body>
@@ -14,7 +14,7 @@
 
     </div><br><br>
     <p class="text-center pt-2">
-    <button onclick="forma()" class="pt-2">New Book</button>
+    <button class="pt-2 button1">New Book</button>
     </p>
     <form style="display: none;" id="form" class="new-book-form ">
         <label for="bookName" class="sr-only">Book name</label><br>
@@ -23,14 +23,12 @@
         <input id="pagesNumber" class="form-control" placeholder="number of pages" type="number"><br>
         <input id="yes" name="grp1" value="Yes I have read it" type="radio">yes</input>
         <input id="no" name="grp1" value="No I haven't read it" type="radio">no</input><br><br>
-        <button onclick="addBookToLibrary()"> Add Book to Library</button><br><br>
-        <button onclick="cancel()">cancel</button>
+        <button class="button2"> Add Book to Library</button><br><br>
+        <button class="button3">cancel</button>
     </form>
 </div>
 </div>
-<script src="./scr/dom.js" type="text/javascript">
+<script src="./main.js" type="text/javascript">
 </script>
-    <script src="./scr/script.js" type="text/javascript">
-    </script>
 </body>
 </html>

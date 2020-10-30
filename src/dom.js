@@ -5,6 +5,7 @@ const dombook1 = () => {
   const rd1 = document.getElementById('yes');
   const rd2 = document.getElementById('no');
   const myLibrary = [];
+  const read = '';
 
   return {
     name,
@@ -13,14 +14,14 @@ const dombook1 = () => {
     rd1,
     rd2,
     myLibrary,
+    read,
   };
 };
 
 const cont = () => {
-  let myLibrary = JSON.parse(localStorage.getItem('library'));
+  const myLibrary = JSON.parse(localStorage.getItem('library'));
   const container = document.getElementById('contn');
-  let i = 0;
-  for (i = 0; i < myLibrary.length; i++) {
+  for (let i = 0; i < myLibrary.length; i += 1) {
     const div = document.createElement('div');
     const nameB = document.createElement('h1');
     const authorB = document.createElement('h2');
@@ -41,26 +42,27 @@ const cont = () => {
     btn2.setAttribute('class', 'btn btn-primary');
 
     btn1.addEventListener('click', () => {
-      const result = myLibrary.find(({ num }) => num === numB);
-      if (myLibrary.length === 1) {
-        myLibrary = [];
+      let myLibrary2 = JSON.parse(localStorage.getItem('library'));
+      if (myLibrary2.length === 1) {
+        myLibrary2 = [];
       }
-      myLibrary.splice(numB, 1);
+      myLibrary2.splice(numB, 1);
       i -= 1;
       container.removeChild(div);
-      localStorage.setItem('library', JSON.stringify(myLibrary));
+      localStorage.setItem('library', JSON.stringify(myLibrary2));
       localStorage.setItem('counter', JSON.stringify(i));
     });
 
     btn2.addEventListener('click', () => {
+      const myLibrary2 = JSON.parse(localStorage.getItem('library'));
       if (readB.textContent === 'Yes I have read it') {
         readB.textContent = "No I haven't read it";
-        myLibrary[numB].read = "No I haven't read it";
-        localStorage.setItem('library', JSON.stringify(myLibrary));
+        myLibrary2[numB].read = "No I haven't read it";
+        localStorage.setItem('library', JSON.stringify(myLibrary2));
       } else {
         readB.textContent = 'Yes I have read it';
-        myLibrary[numB].read = 'Yes I have read it';
-        localStorage.setItem('library', JSON.stringify(myLibrary));
+        myLibrary2[numB].read = 'Yes I have read it';
+        localStorage.setItem('library', JSON.stringify(myLibrary2));
       }
     });
 
@@ -73,3 +75,5 @@ const cont = () => {
     container.appendChild(div);
   }
 };
+
+export { dombook1, cont };
