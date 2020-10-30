@@ -16,10 +16,17 @@ This project was built using these technologies.
 
 ### Running Locally
 
-Just clone the repo and you can easily work with it:
+Clone the repo:
 ```
-git clone https://github.com/ricardo123321/Restaurant-Page.git
-
+git clone https://github.com/ricardo123321/WEATHER-APP.git
+```
+Inside the root folder of the project, install the node packages:
+```
+npm install
+```
+Go to the root folder and run the npm build script:
+```
+npm run build
 ```
 ## Author
 
